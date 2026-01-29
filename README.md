@@ -8,19 +8,30 @@ Utiliza la API de Giphy Developers para obtener gifs.
 
 ## Instalación y ejecución del proyecto
 Descargar las dependencias con `npm install`.
+
 Iniciar la aplicación con `npm run dev`.
+
 ---
+
 Ejecutar las pruebas con `npm run test`.
+
 Visualizar las pruebas en el navegador con `npm run test:ui`.
+
 Efectuar el informe de cobertura con `npm run coverage`.
+
 ---
+
 Construir la aplicación con `npm run build`.
+
 Probar la aplicación con `http-server -o` desde la carpeta dist.
 
 ## Instalaciones de paquetes necesarios
 Axios se instala con `npm install axios`.
+
 Vitest se instala con `npm install -D vitest`.
+
 Testing Library se instala con `npm install --save-dev @testing-library/react @testing-library/dom @types/react @types/react-dom`
+
 http-server se instala con `npm install --global http-server`
 
 ## Aspectos analizados
