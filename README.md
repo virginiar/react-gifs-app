@@ -4,12 +4,19 @@ Aplicación web basada en el proyecto GifsApp del curso de "React: De cero a exp
 
 Se trata de un proyecto React creado utilizando Vite con TypeScript + SWC.
 
+Utiliza la API de Giphy Developers para obtener gifs.
+
 ## Instalación y ejecución del proyecto
 Descargar las dependencias con `npm install`.
 Iniciar la aplicación con `npm run dev`.
 Ejecutar las pruebas con `npm run test`.
 Visualizar las pruebas en el navegador con `npm run test:ui`.
 Efectuar el informe de cobertura con `npm run coverage`.
+
+## Instalaciones de paquetes necesarios
+Axios se instala con `npm install axios`.
+Vitest se instala con `npm install -D vitest`.
+Testing Library se instala con `npm install --save-dev @testing-library/react @testing-library/dom @types/react @types/react-dom`
 
 ## Aspectos analizados
 En este proyecto se abordan la estructuración de proyectos de React:
@@ -36,6 +43,3 @@ También se hace una introducción a las pruebas autpmáticas de aplicaciones Re
 - Espías
 - Escribir funciones para las pruebas
 - Manejo de excepciones
-
-Vitest se instala con `npm install -D vitest`.
-Testing Library se instala con `npm install --save-dev @testing-library/react @testing-library/dom @types/react @types/react-dom`
