@@ -66,7 +66,7 @@ http-server se instala con `npm install --global http-server`
 npm install --save-dev vitest jsdom
 ```
 
-React [Testing Library](https://testing-library.com/docs/react-testing-library/intro) se instala con:
+[React Testing Library](https://testing-library.com/docs/react-testing-library/intro) se instala con:
 ```bash
 npm install --save-dev @testing-library/react @testing-library/dom
 ```
