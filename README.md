@@ -71,6 +71,11 @@ npm install --save-dev vitest jsdom
 npm install --save-dev @testing-library/react @testing-library/dom
 ```
 
+[Axios Mock Adapter](https://www.npmjs.com/package/axios-mock-adapter):
+```bash
+npm install axios-mock-adapter --save-dev
+```
+
 En el archivo `package.json`debe incluirse:
 ```json
 "scripts": {
