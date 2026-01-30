@@ -1,4 +1,4 @@
-import { describe, expect, test } from "vitest";
+import { beforeEach, describe, expect, test, vi } from "vitest";
 import AxiosMockAdapter from 'axios-mock-adapter';
 
 import { getGifsByQuery } from "./get-gifs-by-query.action";
@@ -6,7 +6,12 @@ import { giphyApi } from "../api/giphy.api";
 import { giphySearchResponseMock } from './../../../tests/mocks/giphy.response.data';
 
 describe('getGifsByQuery', () => {
-    const mock = new AxiosMockAdapter(giphyApi);
+    let mock = new AxiosMockAdapter(giphyApi);
+
+    beforeEach(() => {
+        mock.reset();
+        mock = new AxiosMockAdapter(giphyApi);
+    });
 
     /* test('should return a list of gifs', async () => {
         const gifs = await getGifsByQuery('Goku');
@@ -28,7 +33,7 @@ describe('getGifsByQuery', () => {
         mock.onGet('/search').reply(200, giphySearchResponseMock);
 
         const gifs = await getGifsByQuery('Goku');
-        
+
         expect(gifs.length).toBe(10);
 
 
@@ -39,5 +44,35 @@ describe('getGifsByQuery', () => {
             expect(typeof gif.width).toBe('number');
             expect(typeof gif.height).toBe('number');
         });
+    });
+
+    test('should return an empty list of gifs if query is empty', async () => {
+        // mock.onGet('/search').reply(200, { data: [] });
+        mock.restore();
+
+        const gifs = await getGifsByQuery('');
+
+        expect(gifs.length).toBe(0);
+    });
+
+    test('should handle error when the API returns an error', async () => {
+        // Creando un espía para controlar cuando se llama a console.error
+        const consoleErrorSpy = vi
+            .spyOn(console, 'error')
+            .mockImplementation(() => { });
+
+        // Creando un mock de la respuesta con error 400
+        mock.onGet('/search').reply(400, {
+            data: {
+                message: 'Bad Request',
+            },
+        });
+
+        const gifs = await getGifsByQuery('goku');
+
+        expect(gifs.length).toBe(0);
+        expect(consoleErrorSpy).toHaveBeenCalled();
+        expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
+        expect(consoleErrorSpy).toHaveBeenCalledWith(expect.anything());
     });
 });
