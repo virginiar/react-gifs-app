@@ -51,7 +51,7 @@ export const useGifs = () => {
     // gifsCache[query] = gifs;
     // Gestionando caché con useRef
     gifsCache.current[query] = gifs;
-    console.log(gifsCache);
+    // console.log(gifsCache);
   };;
 
   return {
